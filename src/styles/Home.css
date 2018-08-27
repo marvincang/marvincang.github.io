@@ -1,0 +1,21 @@
+.content {
+  text-align: center;
+  background-color: #222;
+}
+
+.title {
+  color: #ddd;
+  font-size: 52px;
+  display: inline;
+}
+
+.icon {
+  width: 80px;
+}
+
+a.icon {
+  font-size: 40px;
+  color: #f88192;
+  text-decoration: none;
+  cursor: pointer;
+}
