@@ -17,6 +17,10 @@ class Home extends React.Component {
 
   }
 
+  redirectToProfile = () => {
+    window.location = `${process.env.PUBLIC_URL}/profile`;
+  }
+
   componentDidMount() {
     const strings = ['I develop', 'I work', 'I learn', 'I am Marvin Cangcianno. Hello!'];
     const options = {
@@ -47,12 +51,12 @@ class Home extends React.Component {
         </Jumbotron>
         <div className="content">
           <Grid>
-            <Row>
+            <Row className="icon-row">
               <Col xs={3} md={3}>
-                <Image className="icon" src={`${process.env.PUBLIC_URL}/icons/gatech.png`} circle />
+                <i className="material-icons home" onClick={this.redirectToProfile}>person</i>
               </Col>
               <Col xs={3} md={3}>
-                <a className="icon" href="/projects">{"</>"}</a>
+                <a className="icon" href={`${process.env.PUBLIC_URL}/projects`}>{"</>"}</a>
               </Col>
             </Row>
           </Grid>

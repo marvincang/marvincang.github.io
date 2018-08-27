@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^1.2.0",
+    "material-design-icons": "^3.0.1",
     "react": "^16.4.0",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.0",
@@ -10,7 +12,10 @@
     "react-scripts": "^1.1.5",
     "typed.js": "^2.0.7"
   },
+  "homepage": "https://marvincang.github.io",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

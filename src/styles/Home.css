@@ -14,8 +14,19 @@
 }
 
 a.icon {
-  font-size: 40px;
+  font-size: 38px;
   color: #f88192;
   text-decoration: none;
+  cursor: pointer;
+}
+
+.material-icons.home {
+  font-size: 48px;
+  vertical-align: middle;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.material-icons.home:hover {
   cursor: pointer;
 }

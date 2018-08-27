@@ -1,8 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Contact from './pages/Contact';
+import Profile from './pages/Profile';
 import Projects from './pages/Projects';
+import Contact from './pages/Contact';
+import Resume from './pages/Resume';
 import HeaderNavbar from './components/HeaderNavbar';
 import Footer from './components/Footer';
 
@@ -15,9 +17,11 @@ class App extends React.Component {
         <div>
           <HeaderNavbar />
           <div className="page">
-            <Route exact path="/" component={Home} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/projects" component={Projects} />
+            <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home} />
+            <Route path={`${process.env.PUBLIC_URL}/profile`} component={Profile} />
+            <Route path={`${process.env.PUBLIC_URL}/contact`} component={Contact} />
+            <Route path={`${process.env.PUBLIC_URL}/projects`} component={Projects} />
+            <Route path={`${process.env.PUBLIC_URL}/resume`} component={Resume} />
           </div>
           <Footer />
         </div>
