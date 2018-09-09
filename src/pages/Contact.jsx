@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row } from 'react-bootstrap';
 // import './../styles/Contact.css';
 
 class Contact extends React.Component {
@@ -7,20 +7,7 @@ class Contact extends React.Component {
     return (
       <Grid>
         <Row className="items">
-          <Col xs={4} md={4}>
-            <div>Datadex</div>
-          </Col>
-          <Col xs={4} md={4}>
-            <div>Wake Stage Classifier</div>
-          </Col>
-          <Col xs={4} md={4}>
-            <div>PERMIAS Nasional Database</div>
-          </Col>
-        </Row>
-        <Row className="items">
-          <Col xs={4} md={4}>
-            <div>CampusEats</div>
-          </Col>
+          CONTACT
         </Row>
       </Grid>
     );

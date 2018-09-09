@@ -1,6 +1,6 @@
 .content {
   text-align: center;
-  background-color: #222;
+  background: #222;
 }
 
 .title {
@@ -9,24 +9,25 @@
   display: inline;
 }
 
-.icon {
-  width: 80px;
+.content-flexbox {
+  text-align: center;
+  display: flex;
+  background: #222;
+  justify-content: center;
 }
 
-a.icon {
-  font-size: 38px;
-  color: #f88192;
-  text-decoration: none;
+.content-flexbox>div {
+  border: 1px #ddd solid;
+  padding: 16px 24px;
+  margin: 10px;
+  width: 15%;
+  text-align: center;
+}
+
+.content-flexbox>div:hover {
   cursor: pointer;
-}
-
-.material-icons.home {
-  font-size: 48px;
-  vertical-align: middle;
-  padding-top: 3px;
-  padding-bottom: 3px;
-}
-
-.material-icons.home:hover {
-  cursor: pointer;
+  color: #222;
+  background-color: #ddd;
+  border-color: #ddd;
+  opacity: 0.5;
 }

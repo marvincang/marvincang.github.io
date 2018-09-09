@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Image, Grid, Row, Col } from 'react-bootstrap';
+import { Jumbotron, Table } from 'react-bootstrap';
 import Typed from 'typed.js';
 
 import './../styles/Home.css';
@@ -14,11 +14,13 @@ class Home extends React.Component {
   }
 
   onTypedComplete = (self) => {
-
+    this.setState({
+      showBackground: true,
+    })
   }
 
-  redirectToProfile = () => {
-    window.location = `${process.env.PUBLIC_URL}/profile`;
+  redirectTo = (url) => {
+    window.location = `${process.env.PUBLIC_URL}/#/${url}`;
   }
 
   componentDidMount() {
@@ -49,17 +51,10 @@ class Home extends React.Component {
             }}
           />
         </Jumbotron>
-        <div className="content">
-          <Grid>
-            <Row className="icon-row">
-              <Col xs={3} md={3}>
-                <i className="material-icons home" onClick={this.redirectToProfile}>person</i>
-              </Col>
-              <Col xs={3} md={3}>
-                <a className="icon" href={`${process.env.PUBLIC_URL}/projects`}>{"</>"}</a>
-              </Col>
-            </Row>
-          </Grid>
+        <div className="content-flexbox">
+          <div onClick={() => this.redirectTo('profile')}>ABOUT ME</div>
+          <div onClick={() => this.redirectTo('contact')}>CONTACT</div>
+          <div onClick={() => this.redirectTo('resume')}>RESUME</div>
         </div>
       </div>
     );

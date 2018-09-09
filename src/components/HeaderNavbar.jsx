@@ -8,20 +8,20 @@ class HeaderNavbar extends React.Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="/">Marvin Cangcianno</a>
+            <a href={`${process.env.PUBLIC_URL}/`}>Marvin Cangcianno</a>
           </Navbar.Brand>
         </Navbar.Header>
         <Nav pullRight>
-          <NavItem eventKey={1} href="/profile">
+          <NavItem eventKey={1} href={`${process.env.PUBLIC_URL}/#/profile`}>
             Profile
           </NavItem>
-          <NavItem eventKey={2} href="/projects">
+          <NavItem eventKey={2} href={`${process.env.PUBLIC_URL}/#/projects`}>
             Projects
           </NavItem>
-          <NavItem eventKey={3} href="/contact">
+          <NavItem eventKey={3} href={`${process.env.PUBLIC_URL}/#/contact`}>
             Contact
           </NavItem>
-          <NavItem eventKey={4} href="/resume">
+          <NavItem eventKey={4} href={`${process.env.PUBLIC_URL}/#/resume`}>
             Resume
           </NavItem>
         </Nav>
