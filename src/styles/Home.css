@@ -27,7 +27,7 @@
 .content-flexbox>div:hover {
   cursor: pointer;
   color: #222;
-  background-color: #ddd;
-  border-color: #ddd;
+  background-color: #eee;
+  border-color: #eee;
   opacity: 0.5;
 }

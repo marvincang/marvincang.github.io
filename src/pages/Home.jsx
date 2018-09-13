@@ -52,9 +52,7 @@ class Home extends React.Component {
           />
         </Jumbotron>
         <div className="content-flexbox">
-          <div onClick={() => this.redirectTo('profile')}>ABOUT ME</div>
-          <div onClick={() => this.redirectTo('contact')}>CONTACT</div>
-          <div onClick={() => this.redirectTo('resume')}>RESUME</div>
+          <div onClick={() => this.redirectTo('profile')}>LEARN MORE ABOUT ME!</div>
         </div>
       </div>
     );
