@@ -13,12 +13,14 @@ class Home extends React.Component {
     this.state = {
       percentage: 25,
       showRoles: false,
+      controller: 'skip',
     }
   }
 
   onTypedComplete = () => {
     this.setState({
       showRoles: true,
+      controller: 'replay',
     })
   }
 
@@ -57,6 +59,7 @@ class Home extends React.Component {
     this.setState({
       percentage: 100,
       showRoles: true,
+      controller: 'replay',
     })
   }
 
@@ -67,10 +70,21 @@ class Home extends React.Component {
     this.typed.start();
     this.setState({
       percentage: 25,
+      controller: 'skip',
     })
   }
 
   render() {
+    let controller = this.state.controller === 'replay' ? (
+      <div id="replay">
+        <i className="material-icons" onClick={this.replayContent}>replay</i>
+      </div>
+    ) : (
+      <div id="skip">
+        <i className="material-icons" onClick={this.skipContent}>skip_next</i>
+      </div>
+    );
+
     return (
       <div>
         <Jumbotron className="content">
@@ -82,21 +96,16 @@ class Home extends React.Component {
           >I </div>
         </Jumbotron>
         <div className="content-controller">
-          <div id="replay">
-            <i className="material-icons" onClick={this.replayContent}>replay</i>
-          </div>
           <div>
             <CircularProgressbar
               percentage={this.state.percentage}
             />
           </div>
-          <div id="skip">
-            <i className="material-icons" onClick={this.skipContent}>skip_next</i>
-          </div>
+          {controller}
         </div>
         <Fade in={this.state.showRoles}>
           <div className="content-roles">
-            Web Developer / Georgia Tech Student / Visualization Enthusiasts
+            Web Developer / Georgia Tech Student
           </div>
         </Fade>
         <div className="content-flexbox">
