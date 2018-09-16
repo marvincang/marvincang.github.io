@@ -2,6 +2,7 @@
   text-align: center;
   background: #222;
   margin-bottom: 0px;
+  margin-top: 15%;
 }
 
 .title {
@@ -40,8 +41,8 @@
 }
 
 .content-controller {
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   margin-left: auto;
   margin-right: 200px;
   position: relative;
@@ -53,8 +54,8 @@
 
 .content-controller>div#skip, .content-controller>div#replay {
   width: 100%;
-  top: 5px;
-  left: 5px;
+  top: 10px;
+  left: 10px;
 }
 
 .content-controller>div>i {

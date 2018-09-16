@@ -11,7 +11,7 @@ class Home extends React.Component {
     super();
 
     this.state = {
-      percentage: 25,
+      percentage: 0,
       showRoles: false,
       controller: 'skip',
     }
@@ -54,7 +54,6 @@ class Home extends React.Component {
 
   skipContent = () => {
     this.typed.stop();
-    this.typed.reset();
     this.el.innerHTML = 'I am Marvin Cangcianno. Hello!';
     this.setState({
       percentage: 100,
@@ -64,12 +63,10 @@ class Home extends React.Component {
   }
 
   replayContent = () => {
-    this.typed.stop();
+    this.typed.toggle();
     this.typed.reset();
-    this.el.innerHTML = 'I ';
-    this.typed.start();
     this.setState({
-      percentage: 25,
+      percentage: 0,
       controller: 'skip',
     })
   }
@@ -88,12 +85,15 @@ class Home extends React.Component {
     return (
       <div>
         <Jumbotron className="content">
-          <div
-            className="title"
-            ref={(el) => {
-              this.el = el;
-            }}
-          >I </div>
+          <span>
+            &nbsp;
+            <div
+              className="title"
+              ref={(el) => {
+                this.el = el;
+              }}
+              />
+          </span>
         </Jumbotron>
         <div className="content-controller">
           <div>
