@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Image } from 'react-bootstrap';
+
+import './../styles/ProjectButton.css';
 
 class ProjectButton extends Component {
   constructor(props) {
@@ -9,7 +12,9 @@ class ProjectButton extends Component {
 
   render() {
     return (
-      <div>
+      <div className="project-button">
+        <Image src="./datadex.png" className="logo"/>
+        {this.props.title}
       </div>
     )
   }

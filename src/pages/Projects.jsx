@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import './../styles/Projects.css';
+import ProjectButton from './../components/ProjectButton';
 
 class Projects extends React.Component {
   render() {
@@ -8,18 +9,18 @@ class Projects extends React.Component {
       <Grid>
         <Row className="items">
           <Col xs={4} md={4}>
-            <div>Datadex</div>
+            <ProjectButton title="Datadex" />
           </Col>
           <Col xs={4} md={4}>
-            <div>Wake Stage Classifier</div>
+            <ProjectButton title="Wake Stage Classifier" />
           </Col>
           <Col xs={4} md={4}>
-            <div>PERMIAS Nasional Database</div>
+            <ProjectButton title="PERMIAS Nasional Database" />
           </Col>
         </Row>
         <Row className="items">
           <Col xs={4} md={4}>
-            <div>CampusEats</div>
+            <ProjectButton title="CampusEats" />
           </Col>
         </Row>
       </Grid>
