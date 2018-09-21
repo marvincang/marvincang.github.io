@@ -4,7 +4,7 @@
   margin-top: 20px;
 }
 
-.project-button:hover {
+.project-button:hover, .project-button:active, .project-button:focus {
   border-color: #f88192;
   cursor: pointer;
 }

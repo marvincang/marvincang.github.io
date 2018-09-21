@@ -1,8 +1,5 @@
-.footer {
-  background-color: #222;
-  position: fixed;
-  left: 0;
-  bottom: 0;
+.navbar-fixed-bottom {
+  padding: 1rem;
   width: 100%;
   color: #ddd;
   text-align: center;
