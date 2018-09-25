@@ -16,6 +16,11 @@
   opacity: 1;
 }
 
+.close:hover, .close:focus {
+  color: #f88192;
+  outline: 0;
+}
+
 .modal-body {
   padding: 15px 50px 30px 50px;
 }

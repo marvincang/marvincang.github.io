@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid } from 'react-bootstrap';
+// import { Grid, Row, Col } from 'react-bootstrap';
 
 import './../styles/ProjectDetail.css';
 
