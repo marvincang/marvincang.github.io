@@ -34,10 +34,10 @@ class Contact extends React.Component {
             */}
             <h4>Social Media</h4>
             <p className="social-icons">
-              <a href="https://linkedin.com/in/marvin-cangcianno/" rel="noopener noreferrer" target="_blank" className="fa fa-linkedin"></a>
-              <a href="https://twitter.com/mvcangcianno/" rel="noopener noreferrer" target="_blank" className="fa fa-twitter"></a>
-              <a href="https://facebook.com/mrcangcianno/" rel="noopener noreferrer" target="_blank" className="fa fa-facebook"></a>
-              <a href="https://instagram.com/marvincang/" rel="noopener noreferrer" target="_blank" className="fa fa-instagram"></a>
+              <a href="https://linkedin.com/in/marvin-cangcianno/" rel="noopener noreferrer" target="_blank" className="fa fa-linkedin"> </a>
+              <a href="https://twitter.com/mvcangcianno/" rel="noopener noreferrer" target="_blank" className="fa fa-twitter"> </a>
+              <a href="https://facebook.com/mrcangcianno/" rel="noopener noreferrer" target="_blank" className="fa fa-facebook"> </a>
+              <a href="https://instagram.com/marvincang/" rel="noopener noreferrer" target="_blank" className="fa fa-instagram"> </a>
             </p>
           </Col>
         </Row>
