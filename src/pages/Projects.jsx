@@ -32,15 +32,15 @@ class Projects extends React.Component {
             </ProjectButton>
           </Col>
           <Col xs={4} md={4}>
-            <ProjectButton title="Wake Stage Classifier" imageSrc="./datadex.png" />
+            <ProjectButton title="Wake Stage Classifier" imageSrc="./placeholder.jpg" />
           </Col>
           <Col xs={4} md={4}>
-            <ProjectButton title="PERMIAS Nasional Database" imageSrc="./datadex.png" />
+            <ProjectButton title="PERMIAS Nasional Database" imageSrc="./placeholder.jpg" />
           </Col>
         </Row>
         <Row className="items">
           <Col xs={4} md={4}>
-            <ProjectButton title="CampusEats" imageSrc="./datadex.png" />
+            <ProjectButton title="CampusEats" imageSrc="./placeholder.jpg" />
           </Col>
         </Row>
       </Grid>
