@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Row, Col, PageHeader } from 'react-bootstrap';
+import YouTube from 'react-youtube';
 import './../styles/Projects.css';
 import ProjectButton from './../components/ProjectButton';
 
@@ -32,7 +33,25 @@ class Projects extends React.Component {
             </ProjectButton>
           </Col>
           <Col xs={4} md={4}>
-            <ProjectButton title="Wake Stage Classifier" imageSrc="./placeholder.jpg" />
+            <ProjectButton title="Wake Stage Classifier" imageSrc="./wake-logo.png">
+              <PageHeader>
+                Wake Stage Classifier <small>Python, PySpark, Sklearn</small>
+              </PageHeader>
+              <a href="https://docs.google.com/document/d/1IgSuqJh-Xdl_YZmLUGJxdceZ_He2FWBtMI0YpyxRSb8/edit?usp=sharing">Link to paper here</a>
+              <br/>
+              <p>
+                This paper utilizes classification algorithm to classify wake stage using EEG channels with no prior knowledge. Existing models use fix calculation or unreliable tracking to determine the best time to wake up. Most of them also don’t explain clearly how they actually come up with the decision. In this paper, I try to make a classification model to classify whether the person is in Wake stage, at any given second during their sleep. With clear and well-explained classification algorithm, I hope it is easier for people to trust this calculation for choosing the best time to wake up that fits their preferred time window.
+              </p>
+              <p>
+                This project is the final project of the class CSE 6250: Big Data in Healthcare during my Master's program at Georgia Institute of Technology. With accuracy of 77% and precision of 94%, I'd say this project out-performed my expectation.
+              </p>
+              <p>
+                Watch the presentation here:
+              </p>
+              <YouTube
+                videoId="uUgaKNPIZF8"
+              />
+            </ProjectButton>
           </Col>
           <Col xs={4} md={4}>
             <ProjectButton title="PERMIAS Nasional Database" imageSrc="./placeholder.jpg" />

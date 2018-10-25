@@ -24,7 +24,7 @@ class ProjectButton extends Component {
   render() {
     return (
       <div>
-        <div className="project-button" onClick={this.showModal}>
+        <div className={`project-button ${this.state.show ? 'show' : ''}`} onClick={this.showModal}>
           <Image src={this.props.imageSrc} className="logo"/>
           {this.props.title}
         </div>
