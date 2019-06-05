@@ -105,11 +105,13 @@ class Home extends React.Component {
         </div>
         <Fade in={this.state.showRoles}>
           <div className="content-roles">
-            Web Developer / Georgia Tech Student
+            Web Developer /
+            <a href="https://www.gatech.edu/"> Georgia Tech</a> '19 /
+            Software Engineer at <a href="https://www.ncr.com/">NCR Corporation</a>
           </div>
         </Fade>
         <div className="content-flexbox">
-          <div onClick={() => this.redirectTo('profile')}>LEARN MORE ABOUT ME!</div>
+          <div onClick={() => this.redirectTo('profile')}>LEARN MORE ABOUT ME</div>
         </div>
       </div>
     );

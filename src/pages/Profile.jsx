@@ -31,6 +31,19 @@ class Profile extends React.Component {
           <Col xs={12} sm={4} md={8}>
             <div className="profile-content">
               <br />
+              <h3>Career</h3>
+              <p>
+                Since February 2019, I am working as a Software Engineer at <a href="https://www.ncr.com/">NCR Corporation</a>. The team that I am working with work primarily on the Developer Experience <a href="https://developer.ncr.com">site</a>.
+              </p>
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} sm={4} md={4}>
+          </Col>
+          <Col xs={12} sm={4} md={8}>
+            <div className="profile-content">
+              <br />
               <h3>Internship Experience</h3>
               <p>
                 In the summer of 2018, I interned at one of the biggest tech company in Indonesia, <a href="https://www.go-jek.com/" rel="noopener noreferrer" target="_blank">GO-JEK</a>. I created <a href="/#/projects">Datadex</a>, a data discovery web platform tailored specifically for GO-JEK, using React. For three months, I had a blast working with some of the most talented and motivated people in Indonesia.

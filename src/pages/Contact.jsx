@@ -21,6 +21,10 @@ class Contact extends React.Component {
             <p className="email">
               <a href="mailto:marvincang@hotmail.com">marvincang@hotmail.com</a>
             </p>
+            <h4>Work Email</h4>
+            <p className="email">
+            <a href="mailto:marvin.cangcianno@ncr.com">marvin.cangcianno@ncr.com</a>
+            </p>
             <h4>School Email</h4>
             <p className="email">
               <a href="mailto:mcangcianno3@gatech.edu">mcangcianno3@gatech.edu</a>

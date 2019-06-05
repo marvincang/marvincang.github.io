@@ -77,3 +77,7 @@
 .CircularProgressbar .CircularProgressbar-text {
   fill: #f88192;
 }
+
+.content-roles>a {
+  color: #f88192;
+}
