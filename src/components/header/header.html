@@ -1,12 +1,12 @@
 <header class="fixed top-0 inset-x-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">
-  <div class="px-16 h-14 flex items-center justify-between">
+  <div class="px-14 h-14 flex items-center justify-between">
     <div class="left">
-      <div class="flex items-center justify-center font-serif">MC</div>
+      <a pButton class="font-serif" link href="/">MC</a>
     </div>
     <div class="right">
       <div class="flex items-center gap-3">
         <button
-          class="text-muted-foreground hover:text-foreground transition-colors p-1"
+          class="hover:text-accent transition-colors p-1"
           aria-label="Toggle dark mode"
           pButton
           (click)="toggleDarkMode()"
@@ -33,7 +33,7 @@
             <path d="m6.34 17.66-1.41 1.41"></path>
             <path d="m19.07 4.93-1.41 1.41"></path>
           </svg></button
-        ><button class="md:hidden text-muted-foreground hover:text-foreground transition-colors">
+        ><button class="md:hidden hover:text-accent transition-colors">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"

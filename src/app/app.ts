@@ -1,14 +1,22 @@
-import { afterNextRender, Component, ElementRef, inject, signal } from '@angular/core';
+import {
+  afterNextRender,
+  Component,
+  ElementRef,
+  inject,
+  signal,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Header } from 'src/components/header/header';
-import { NavLink, Sidemap } from 'src/components/sidemap/sidemap';
-import { Footer } from 'src/components/footer/footer';
+import { Footer } from '@components/footer/footer';
+import { Header } from '@components/header/header';
+import { NavLink, Sidemap } from '@components/sidemap/sidemap';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, Header, Sidemap, Footer],
   templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.css',
 })
 export class AppComponent {

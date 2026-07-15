@@ -19,6 +19,8 @@ export const appConfig: ApplicationConfig = {
           },
         },
       },
+      license:
+        'eyJpZCI6IjgwM2JlMjVkLTA4ZWYtNGJmMi05NTc2LTNlZjA0NDUxZTM5MSIsInByb2R1Y3QiOiJwcmltZXVpIiwidGllciI6ImNvbW11bml0eSIsInR5cGUiOiJkZXYiLCJpYXQiOjE3ODQxNDI5ODEsImV4cCI6MTgxNTY3ODk4MX0.7R12KKKCk237ID3zsm1Hzm23bjXezp4jC1unUyxEVr7OSYL3I2zlNhpNFUSOIWvH4NLL7EXzuyR9DiKhw1yUBw',
     }),
   ],
 };

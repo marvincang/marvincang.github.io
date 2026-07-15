@@ -1,9 +1,10 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-liquid-glass',
   imports: [],
   templateUrl: './liquid-glass.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './liquid-glass.css',
 })
 export class LiquidGlass {

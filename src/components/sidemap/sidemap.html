@@ -10,11 +10,14 @@
             pButton
             variant="text"
             (click)="scrollTo(link)"
-            class="flex justify-start text-muted-foreground px-2 py-1 rounded-xl w-full text-sm"
+            class="flex justify-start text-muted-foreground px-2 py-1 rounded-xl w-full text-sm hover:bg-accent/10 transition-colors duration-200"
             [class]="isActive(link) ? 'text-accent! font-semibold bg-accent/10' : ''"
           >
             @if (link.icon) {
-              <!-- <svg [pIcon]="link.icon"></svg> -->
+              <svg
+                [pIcon]="link.icon"
+                [color]="isActive(link) ? 'accent' : 'muted-foreground'"
+              ></svg>
             }
             {{ link.label }}
           </button>

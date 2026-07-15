@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { ButtonDirective } from 'primeng/button';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-header',
-  imports: [ButtonDirective, CommonModule],
+  imports: [ButtonModule, CommonModule],
   templateUrl: './header.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './header.css',
 })
 export class Header {

@@ -4,7 +4,9 @@
     <main class="flex-1 min-w-0">
       <router-outlet (activate)="onRouteActivated()" />
     </main>
-    <app-sidemap [sections]="sections()" />
+    <div class="hidden lg:block">
+      <app-sidemap [sections]="sections()" />
+    </div>
   </div>
 </div>
 <app-footer />

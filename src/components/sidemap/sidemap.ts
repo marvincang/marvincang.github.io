@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, effect, HostListener, input, signal } from '@angular/core';
 import { LiquidGlass } from '../liquid-glass/liquid-glass';
 import { ButtonModule } from 'primeng/button';
+import { PIcon } from '@primeicons/angular/p-icon';
 
 export type NavLink = {
   label: string;
@@ -12,13 +13,15 @@ export type NavLink = {
 
 @Component({
   selector: 'app-sidemap',
-  imports: [CommonModule, LiquidGlass, ButtonModule],
+  imports: [CommonModule, LiquidGlass, ButtonModule, PIcon],
   templateUrl: './sidemap.html',
   styleUrl: './sidemap.css',
 })
 export class Sidemap {
   sections = input<NavLink[]>([]);
   activeSection = signal<string>('');
+  icons = ['home', 'star', 'heart', 'bell'];
+  selectedIcon = signal<string>('home');
 
   private offset = 140;
 
