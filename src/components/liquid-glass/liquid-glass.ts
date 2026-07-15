@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-liquid-glass',
@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './liquid-glass.css',
 })
 export class LiquidGlass {
-
+  theme = input<'light' | 'dark'>('dark');
+  activated = input<boolean>(true);
+  styleClass = input<string>('');
 }

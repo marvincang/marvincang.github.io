@@ -1,0 +1,25 @@
+@if (sections().length > 0) {
+  <aside class="flex flex-col gap-3 w-44 shrink-0 sticky top-20 self-start mb-8">
+    <app-liquid-glass styleClass="py-8 px-4 h-[calc(100dvh-100px)] flex flex-col gap-2">
+      <p class="text-xs uppercase tracking-widest mb-1">On this page</p>
+
+      <nav class="flex flex-col gap-2">
+        @for (link of sections(); track link.href) {
+          <button
+            key="{link.href}"
+            pButton
+            variant="text"
+            (click)="scrollTo(link)"
+            class="flex justify-start text-muted-foreground px-2 py-1 rounded-xl w-full text-sm"
+            [class]="isActive(link) ? 'text-accent! font-semibold bg-accent/10' : ''"
+          >
+            @if (link.icon) {
+              <!-- <svg [pIcon]="link.icon"></svg> -->
+            }
+            {{ link.label }}
+          </button>
+        }
+      </nav>
+    </app-liquid-glass>
+  </aside>
+}

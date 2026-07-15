@@ -19,11 +19,11 @@
     />
   </head>
   <script>
-    (function() {
+    (function () {
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       // You can also check localStorage here if you save the user's manual choice later
-      const userTheme = localStorage.getItem('theme'); 
-      
+      const userTheme = localStorage.getItem('mv-theme');
+
       if (userTheme === 'dark' || (!userTheme && prefersDark)) {
         document.documentElement.classList.add('app-dark');
       } else {

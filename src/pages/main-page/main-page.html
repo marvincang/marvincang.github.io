@@ -1,1 +1,358 @@
-<p>main-page works!</p>
+<section class="px-6 pt-24 pb-24">
+  <div class="flex flex-col gap-6">
+    <p class="text-sm text-accent font-medium tracking-widest uppercase mb-4">Hello!</p>
+    <h1 class="text-5xl md:text-7xl font-light leading-none tracking-tight mb-3">
+      Marvin <br />
+      Cangcianno
+    </h1>
+    <p class="text-lg text-muted-foreground max-w-xl leading-relaxed font-light">
+      Incoming PhD student in Computer Science at Georgia State University. Former Lead Software
+      Engineer at NCR Corporation, specializing in Developer Experience and platform engineering.
+    </p>
+    <div class="flex items-center gap-4 pt-2">
+      <a
+        href="mailto:mcangcianno1@student.gsu.com"
+        class="inline-flex items-center gap-2 text-sm font-medium border border-foreground px-4 py-2 hover:bg-foreground hover:text-primary-foreground transition-colors rounded-xl"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-mail"
+        >
+          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
+        >Get in touch</a
+      >
+      <a
+        href="https://github.com/marvincang"
+        target="_blank"
+        referrerpolicy="no-referrer"
+        class="text-muted-foreground hover:text-foreground transition-colors"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-github"
+        >
+          <path
+            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+          ></path>
+          <path d="M9 18c-4.51 2-5-2-7-2"></path></svg
+      ></a>
+      <a
+        href="https://www.linkedin.com/in/marvin-cangcianno"
+        target="_blank"
+        referrerpolicy="no-referrer"
+        class="text-muted-foreground hover:text-foreground transition-colors"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-linkedin"
+        >
+          <path
+            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+          ></path>
+          <rect width="4" height="12" x="2" y="9"></rect>
+          <circle cx="4" cy="4" r="2"></circle></svg
+      ></a>
+    </div>
+  </div>
+</section>
+<div class="px-8">
+  <div class="border-t border-border"></div>
+</div>
+<section id="about" class="px-8 py-20">
+  <div class="grid md:grid-cols-[200px_1fr] gap-12">
+    <div>
+      <h2 class="text-xs font-medium tracking-widest uppercase text-muted-foreground">About</h2>
+    </div>
+    <div class="space-y-6">
+      @for (paragraph of aboutTexts; track paragraph) {
+        <p class="text-base leading-relaxed text-foreground/90">{{ paragraph }}</p>
+      }
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-4">
+        @for (category of Object.keys(skills); track category) {
+          <div>
+            <p class="text-xs font-medium uppercase tracking-widest text-muted-foreground mb-3">
+              {{ category }}
+            </p>
+            <ul class="space-y-1.5">
+              @for (skill of skills[category]; track skill) {
+                <li class="text-sm text-foreground/80 font-mono">
+                  {{ skill }}
+                </li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+<section id="experience" icon="person" class="px-8 py-20">
+  <div class="grid md:grid-cols-[200px_1fr] gap-12">
+    <h2 class="text-xs font-medium tracking-widest uppercase text-muted-foreground">Experience</h2>
+    <div class="space-y-12">
+      <div class="space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+          <div>
+            <h3 class="text-base font-semibold">Lead Software Engineer</h3>
+            <p class="text-sm text-muted-foreground">Developer Experience · NCR Corporation</p>
+          </div>
+          <div class="text-right shrink-0">
+            <p class="text-sm text-muted-foreground font-mono">2019 — Present</p>
+            <p class="text-xs text-muted-foreground">Atlanta, GA</p>
+          </div>
+        </div>
+        <p class="text-sm leading-relaxed text-foreground/80">
+          Led a platform engineering team focused on improving developer tooling, internal SDKs, and
+          CI/CD infrastructure across NCR's enterprise software ecosystem. Drove adoption of
+          standardized development workflows and reduced onboarding time by 60%.
+        </p>
+        <ul class="space-y-2">
+          <li class="flex gap-3 text-sm text-foreground/80">
+            <span class="mt-1.5 shrink-0 w-1 h-1 rounded-full bg-accent"></span>Architected internal
+            developer portal used by 400+ engineers
+          </li>
+          <li class="flex gap-3 text-sm text-foreground/80">
+            <span class="mt-1.5 shrink-0 w-1 h-1 rounded-full bg-accent"></span>Designed and
+            maintained shared component libraries and build tooling
+          </li>
+          <li class="flex gap-3 text-sm text-foreground/80">
+            <span class="mt-1.5 shrink-0 w-1 h-1 rounded-full bg-accent"></span>Championed
+            observability practices: logging, tracing, alerting standards
+          </li>
+          <li class="flex gap-3 text-sm text-foreground/80">
+            <span class="mt-1.5 shrink-0 w-1 h-1 rounded-full bg-accent"></span>Mentored senior and
+            mid-level engineers across distributed teams
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="education" class="px-8 py-20">
+  <div class="grid md:grid-cols-[200px_1fr] gap-12">
+    <div>
+      <h2 class="text-xs font-medium tracking-widest uppercase text-muted-foreground">Education</h2>
+    </div>
+    <div class="space-y-10">
+      <div class="grid sm:grid-cols-[1fr_auto] gap-4">
+        <div class="space-y-2">
+          <div class="flex items-center gap-3">
+            <h3 class="text-base font-semibold">PhD, Computer Science</h3>
+            <span class="text-xs px-2 py-0.5 font-medium tracking-wide bg-accent/10 text-accent"
+              >Incoming</span
+            >
+          </div>
+          <p class="text-sm text-muted-foreground">Georgia State University</p>
+          <p class="text-sm text-foreground/75 leading-relaxed">
+            Research focus TBD — exploring interests in distributed systems and developer tooling at
+            scale.
+          </p>
+        </div>
+        <p class="text-sm text-muted-foreground shrink-0 sm:text-right font-mono">2026 — Present</p>
+      </div>
+      <div class="grid sm:grid-cols-[1fr_auto] gap-4">
+        <div class="space-y-2">
+          <div class="flex items-center gap-3">
+            <h3 class="text-base font-semibold">M.S., Computer Science</h3>
+            <span
+              class="text-xs px-2 py-0.5 font-medium tracking-wide bg-muted text-muted-foreground"
+              >Graduated</span
+            >
+          </div>
+          <p class="text-sm text-muted-foreground">Georgia Institute of Technology</p>
+          <p class="text-sm text-foreground/75 leading-relaxed">
+            Graduated 2019. Concentration in Interactive Intelligence.
+          </p>
+        </div>
+        <p class="text-sm text-muted-foreground shrink-0 sm:text-right font-mono">2017 — 2019</p>
+      </div>
+      <div class="grid sm:grid-cols-[1fr_auto] gap-4">
+        <div class="space-y-2">
+          <div class="flex items-center gap-3">
+            <h3 class="text-base font-semibold">B.S., Computer Science</h3>
+            <span
+              class="text-xs px-2 py-0.5 font-medium tracking-wide bg-muted text-muted-foreground"
+              >Graduated</span
+            >
+          </div>
+          <p class="text-sm text-muted-foreground">Georgia Institute of Technology</p>
+          <p class="text-sm text-foreground/75 leading-relaxed">
+            Graduated 2017. Concentration in Media and Intelligence.
+          </p>
+        </div>
+        <p class="text-sm text-muted-foreground shrink-0 sm:text-right font-mono">2015 — 2017</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="px-8">
+  <div class="border-t border-border"></div>
+</div>
+<section id="contact" class="px-8 py-20">
+  <div class="grid md:grid-cols-[200px_1fr] gap-12">
+    <div>
+      <h2 class="text-xs font-medium tracking-widest uppercase text-muted-foreground">Contact</h2>
+    </div>
+    <div class="space-y-6">
+      <p class="text-base leading-relaxed text-foreground/80">
+        I am always open to conversations about research collaborations, engineering challenges, or
+        just a good chat about developer tooling. Reach out through any of the channels below.
+      </p>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <a
+          href="mailto:mcangcianno1@student.gsu.edu"
+          class="group flex flex-col gap-2 p-4 border border-border hover:border-foreground/30 transition-colors rounded-xl"
+          ><div class="flex items-center justify-between">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-mail text-muted-foreground group-hover:text-foreground transition-colors"
+            >
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="11"
+              height="11"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-external-link text-muted-foreground/40 group-hover:text-muted-foreground transition-colors"
+            >
+              <path d="M15 3h6v6"></path>
+              <path d="M10 14 21 3"></path>
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            </svg>
+          </div>
+          <p class="text-xs font-medium uppercase tracking-widest text-muted-foreground">Email</p>
+          <p
+            class="text-xs text-foreground/70 group-hover:text-foreground transition-colors truncate font-mono"
+          >
+            mcangcianno1@student.gsu.edu
+          </p></a
+        ><a
+          href="https://github.com/marvincang"
+          class="group flex flex-col gap-2 p-4 border border-border hover:border-foreground/30 transition-colors rounded-xl"
+          ><div class="flex items-center justify-between">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-github text-muted-foreground group-hover:text-foreground transition-colors"
+            >
+              <path
+                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+              ></path>
+              <path d="M9 18c-4.51 2-5-2-7-2"></path></svg
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="11"
+              height="11"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-external-link text-muted-foreground/50 group-hover:text-muted-foreground transition-colors"
+            >
+              <path d="M15 3h6v6"></path>
+              <path d="M10 14 21 3"></path>
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            </svg>
+          </div>
+          <p class="text-xs font-medium uppercase tracking-widest text-muted-foreground">GitHub</p>
+          <p
+            class="text-xs text-foreground/70 group-hover:text-foreground transition-colors truncate font-mono"
+          >
+            github.com/marvincang
+          </p></a
+        ><a
+          href="https://www.linkedin.com/in/marvin-cangcianno"
+          class="group flex flex-col gap-2 p-4 border border-border hover:border-foreground/30 transition-colors rounded-xl"
+          ><div class="flex items-center justify-between">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-linkedin text-muted-foreground group-hover:text-foreground transition-colors"
+            >
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              ></path>
+              <rect width="4" height="12" x="2" y="9"></rect>
+              <circle cx="4" cy="4" r="2"></circle></svg
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="11"
+              height="11"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-external-link text-muted-foreground/50 group-hover:text-muted-foreground transition-colors"
+            >
+              <path d="M15 3h6v6"></path>
+              <path d="M10 14 21 3"></path>
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            </svg>
+          </div>
+          <p class="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+            LinkedIn
+          </p>
+          <p
+            class="text-xs text-foreground/70 group-hover:text-foreground transition-colors truncate font-mono"
+          >
+            linkedin.com/in/marvin-cangcianno
+          </p></a
+        >
+      </div>
+    </div>
+  </div>
+</section>
