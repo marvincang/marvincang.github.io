@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
+import { ThemeService } from '../../services/theme-service';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +11,9 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './header.css',
 })
 export class Header {
+  themeService = inject(ThemeService);
+
   toggleDarkMode() {
-    const element = document.querySelector('html');
-    element!.classList.toggle('app-dark');
-    localStorage.setItem('mv-theme', element!.classList.contains('app-dark') ? 'dark' : 'light');
+    this.themeService.toggleDarkMode();
   }
 }

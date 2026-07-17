@@ -18,19 +18,6 @@
       rel="stylesheet"
     />
   </head>
-  <script>
-    (function () {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      // You can also check localStorage here if you save the user's manual choice later
-      const userTheme = localStorage.getItem('mv-theme');
-
-      if (userTheme === 'dark' || (!userTheme && prefersDark)) {
-        document.documentElement.classList.add('app-dark');
-      } else {
-        document.documentElement.classList.remove('app-dark');
-      }
-    })();
-  </script>
   <body>
     <app-root></app-root>
   </body>

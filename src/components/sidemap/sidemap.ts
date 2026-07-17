@@ -30,7 +30,6 @@ export class Sidemap {
       const currentSections = this.sections();
       if (currentSections.length > 0) {
         this.activeSection.set(currentSections[0].href);
-        console.log(this.sections());
       }
     });
   }

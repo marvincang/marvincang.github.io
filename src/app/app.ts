@@ -1,15 +1,16 @@
 import {
-  afterNextRender,
   Component,
   ElementRef,
   inject,
   signal,
   ChangeDetectionStrategy,
+  computed,
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Footer } from '@components/footer/footer';
 import { Header } from '@components/header/header';
 import { NavLink, Sidemap } from '@components/sidemap/sidemap';
+import { ThemeService } from '../services/theme-service';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,8 @@ import { NavLink, Sidemap } from '@components/sidemap/sidemap';
 export class AppComponent {
   sections = signal<NavLink[]>([]);
   elementRef = inject(ElementRef);
+  themeService = inject(ThemeService);
+  theme = computed(() => this.themeService.theme());
 
   onRouteActivated() {
     setTimeout(() => {

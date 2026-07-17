@@ -1,5 +1,9 @@
 <app-header />
-<div class="px-8 xl:px-8">
+
+<div class="absolute inset-0 z-0 opacity-10 justify-end hidden lg:flex" aria-hidden="true">
+  <img width="950px" [src]="`/main-bg-${theme()}.svg`" />
+</div>
+<div class="relative px-8 xl:px-8 z-10">
   <div class="flex gap-16">
     <main class="flex-1 min-w-0">
       <router-outlet (activate)="onRouteActivated()" />
