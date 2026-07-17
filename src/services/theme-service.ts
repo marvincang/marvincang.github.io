@@ -32,8 +32,6 @@ export class ThemeService {
       this.theme.set('light');
     }
 
-    console.log(this.theme());
-
     localStorage.setItem('mv-theme', element!.classList.contains('app-dark') ? 'dark' : 'light');
   }
 }
