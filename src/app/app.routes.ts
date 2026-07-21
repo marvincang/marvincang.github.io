@@ -7,6 +7,11 @@ export const routes: Routes = [
     title: 'Marvin Cangcianno',
   },
   {
+    path: 'projects',
+    loadComponent: () => import('../pages/projects-page/projects-page').then((m) => m.ProjectsPage),
+    title: 'Marvin Cangcianno',
+  },
+  {
     path: '**',
     redirectTo: '',
   },

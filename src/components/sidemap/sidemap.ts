@@ -3,13 +3,7 @@ import { Component, effect, HostListener, input, signal } from '@angular/core';
 import { LiquidGlass } from '../liquid-glass/liquid-glass';
 import { ButtonModule } from 'primeng/button';
 import { PIcon } from '@primeicons/angular/p-icon';
-
-export type NavLink = {
-  label: string;
-  href: string;
-  icon?: string;
-  children?: NavLink[];
-};
+import { NavLink } from '../../types/NavLink';
 
 @Component({
   selector: 'app-sidemap',

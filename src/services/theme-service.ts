@@ -1,8 +1,9 @@
 import { Service, signal } from '@angular/core';
+import { AppTheme } from '../types/AppTheme';
 
 @Service()
 export class ThemeService {
-  theme = signal<'light' | 'dark'>('light');
+  theme = signal<AppTheme>('light');
 
   constructor() {
     this.init();

@@ -1,0 +1,10 @@
+{
+  "title": "Doucha Homebakes Ordering Platform",
+  "shortDescription": "Simple online ordering platform to serve small bakery popups. Built with Angular, Supabase, and Vercel.",
+  "tags": ["Angular", "Supabase", "Vercel", "Tailwind"],
+  "year": 2026,
+  "status": "Working MVP",
+  "url": "https://douchahomebakes.com",
+  "githubUrl": "https://github.com/marvincang/doucha",
+  "docsUrl": "./doucha.md"
+}

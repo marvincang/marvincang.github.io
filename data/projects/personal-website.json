@@ -1,0 +1,10 @@
+{
+  "title": "MVNC - Personal Website",
+  "shortDescription": "This website — built with Angular, Tailwind, and GitHub Pages",
+  "tags": ["Angular", "Tailwind", "GitHub Pages"],
+  "year": 2026,
+  "status": "In Progress",
+  "url": "https://marvincang.github.io",
+  "githubUrl": "https://github.com/marvincang/marvincang.github.io",
+  "docsUrl": "./personal-website.md"
+}

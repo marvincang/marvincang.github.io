@@ -8,9 +8,10 @@ import {
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Footer } from '@components/footer/footer';
-import { Header } from '@components/header/header';
-import { NavLink, Sidemap } from '@components/sidemap/sidemap';
+import { Header, PAGES } from '@components/header/header';
+import { Sidemap } from '@components/sidemap/sidemap';
 import { ThemeService } from '../services/theme-service';
+import { NavLink, PageNav } from '../types/NavLink';
 
 @Component({
   selector: 'app-root',
@@ -25,10 +26,13 @@ export class AppComponent {
   elementRef = inject(ElementRef);
   themeService = inject(ThemeService);
   theme = computed(() => this.themeService.theme());
+  PAGES = PAGES;
+  currentPage = signal<PageNav>(this.PAGES[0]);
 
   onRouteActivated() {
     setTimeout(() => {
       this.getSections();
+      this.getCurrentPage();
     }, 0);
   }
 
@@ -51,5 +55,13 @@ export class AppComponent {
       }
     });
     this.sections.set(sections);
+  }
+
+  getCurrentPage() {
+    const curPage = this.PAGES.find((d) => d.href === location.pathname);
+    if (curPage) {
+      console.log(curPage);
+      this.currentPage.set(curPage);
+    }
   }
 }
