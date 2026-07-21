@@ -1,5 +1,6 @@
 {
   "title": "Doucha Homebakes Ordering Platform",
+  "categories": ["Web Application"],
   "shortDescription": "Simple online ordering platform to serve small bakery popups. Built with Angular, Supabase, and Vercel.",
   "tags": ["Angular", "Supabase", "Vercel", "Tailwind"],
   "year": 2026,

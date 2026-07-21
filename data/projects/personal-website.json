@@ -1,5 +1,6 @@
 {
   "title": "MVNC - Personal Website",
+  "categories": ["Web Application"],
   "shortDescription": "This website — built with Angular, Tailwind, and GitHub Pages",
   "tags": ["Angular", "Tailwind", "GitHub Pages"],
   "year": 2026,
