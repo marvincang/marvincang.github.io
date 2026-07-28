@@ -9,14 +9,18 @@ export const PAGES: PageNav[] = [
   {
     label: 'Home',
     href: '/',
-    background: {
-      light: '/main-bg-light.svg',
-      dark: '/main-bg-dark.svg',
-    },
+    // background: {
+    //   light: '/main-bg-light.svg',
+    //   dark: '/main-bg-dark.svg',
+    // },
   },
+  // {
+  //   label: 'Projects',
+  //   href: '/projects',
+  // },
   {
-    label: 'Projects',
-    href: '/projects',
+    label: 'Game',
+    href: '/ciabday-27/game',
   },
 ];
 

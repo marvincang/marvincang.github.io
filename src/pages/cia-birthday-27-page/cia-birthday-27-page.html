@@ -1,0 +1,151 @@
+<section class="px-6 pt-24 pb-8">
+  <div class="flex flex-col gap-6">
+    <p
+      class="text-sm text-accent font-medium tracking-widest uppercase mb-4 flex gap-2 items-center"
+    >
+      <svg data-p-icon="sparkles"></svg>
+      BIRTHDAY WISHES
+    </p>
+    <h1 class="text-5xl md:text-7xl font-light leading-none tracking-tight mb-3">
+      Leave a wish for Cia!
+    </h1>
+    <p class="text-lg text-muted-foreground leading-relaxed font-light">
+      Share a birthday message for Cia using the forms below.
+      <br />
+      Please take a picture of yourself as well and use the Caricature feature for a fun twist!
+      <br />
+      <br />
+      <span class="font-medium">Note:</span> The Caricature service is set up using a local AI, so
+      your image will be processed locally and not sent to any third-party servers.
+    </p>
+  </div>
+</section>
+<section class="px-6 pt-8 pb-24">
+  <div class="grid lg:grid-cols-[420px_1fr] gap-10 items-start">
+    <div class="lg:sticky lg:top-24">
+      <app-liquid-glass>
+        <form class="flex flex-col gap-5 p-6">
+          <p class="text-xs uppercase tracking-widest mb-1">Your wish</p>
+
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-medium text-muted-foreground">Your name</label
+            ><input
+              pInputText
+              placeholder="e.g. Peter Parker"
+              maxlength="60"
+              class="w-full px-3 py-2.5 text-sm bg-muted border border-border outline-none focus:border-accent transition-colors placeholder:text-muted-foreground/50 rounded-lg"
+              value=""
+            />
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-medium text-muted-foreground">Message</label
+            ><textarea
+              placeholder="Write a birthday wish..."
+              maxlength="280"
+              rows="4"
+              pTextarea
+              class="w-full px-3 py-2.5 text-sm bg-muted border border-border outline-none focus:border-accent transition-colors placeholder:text-muted-foreground/50 resize-none rounded-lg"
+            ></textarea>
+            <p class="text-xs text-muted-foreground self-end font-mono">0/280</p>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-medium text-muted-foreground"
+              >Photo <span class="normal-case font-normal">(optional)</span></label
+            >
+            <div class="flex flex-col items-center gap-4 p-4">
+              <!-- Controls -->
+              <div class="flex gap-2">
+                @if (!isCameraOn()) {
+                  <button
+                    pButton
+                    type="button"
+                    (click)="startCamera()"
+                    variant="outlined"
+                    class="px-4 py-2 text-primary rounded-xl border hover:bg-accent/10"
+                  >
+                    Start camera
+                  </button>
+                } @else {
+                  <button
+                    pButton
+                    type="button"
+                    (click)="stopCamera()"
+                    class="px-4 py-2 border border-destructive/10 text-destructive rounded-xl hover:bg-destructive/5"
+                    severity="danger"
+                  >
+                    Stop camera
+                  </button>
+                  <button
+                    pButton
+                    type="button"
+                    (click)="capturedImage() ? retakeSnapshot() : takeSnapshot()"
+                    class="px-4 py-2 rounded-xl"
+                    [class]="
+                      capturedImage()
+                        ? 'hover:bg-accent/10 text-accent border'
+                        : 'bg-accent hover:bg-accent/75 text-accent-foreground'
+                    "
+                  >
+                    {{ capturedImage() ? 'Retake picture' : 'Take picture' }}
+                  </button>
+                }
+              </div>
+
+              <!-- Live Video Feed -->
+              @if (!capturedImage()) {
+                <video
+                  #video
+                  autoplay
+                  playsinline
+                  [class.hidden]="!isCameraOn()"
+                  class="w-full max-w-md rounded-xl border border-border"
+                ></video>
+              }
+
+              <!-- Hidden Canvas for capturing the frame -->
+              <canvas #canvas class="hidden"></canvas>
+
+              <!-- Captured Image Result -->
+              @if (capturedImage(); as imageSrc) {
+                <div class="flex flex-col items-center gap-2">
+                  <p class="text-sm font-medium text-muted-foreground">Captured snapshot:</p>
+                  <img
+                    [src]="imageSrc"
+                    alt="Captured preview"
+                    class="w-full max-w-md rounded-xl border border-border"
+                  />
+                  <button
+                    pButton
+                    type="button"
+                    class="w-full rounded-xl bg-accent text-accent-foreground py-2 mt-2 hover:bg-accent/85"
+                    (click)="caricaturizeMe()"
+                  >
+                    Caricaturize me!
+                  </button>
+                </div>
+              }
+            </div>
+          </div>
+          <button
+            type="submit"
+            disabled=""
+            class="flex items-center justify-center gap-2 py-2.5 text-sm font-medium transition-all duration-150 bg-muted text-muted-foreground cursor-not-allowed rounded-lg"
+          >
+            <svg data-p-icon="pen-to-square"></svg>
+            Post wish
+          </button>
+        </form>
+      </app-liquid-glass>
+    </div>
+    <div class="flex flex-col gap-3">
+      <div class="lg:sticky lg:top-24">
+        <app-liquid-glass styleClass="p-4">
+          <p class="text-sm font-medium tracking-widest uppercase">Wish Board</p>
+        </app-liquid-glass>
+      </div>
+      <app-post-card [post]="post" />
+      <app-post-card [post]="post" />
+      <app-post-card [post]="post" />
+    </div>
+  </div>
+</section>
