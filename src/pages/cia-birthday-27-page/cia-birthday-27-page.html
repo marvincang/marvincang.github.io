@@ -7,16 +7,16 @@
       BIRTHDAY WISHES
     </p>
     <h1 class="text-5xl md:text-7xl font-light leading-none tracking-tight mb-3">
-      Leave a wish for Cia!
+      Leave a wish for Cia and Jo!
     </h1>
     <p class="text-lg text-muted-foreground leading-relaxed font-light">
-      Share a birthday message for Cia using the forms below.
+      Share a birthday message for Cia or Jo using the forms below.
       <br />
-      Please take a picture of yourself as well and use the Caricature feature for a fun twist!
+      <!-- Please take a picture of yourself as well and use the Anime feature for a fun twist! -->
       <br />
       <br />
-      <span class="font-medium">Note:</span> The Caricature service is set up using a local AI, so
-      your image will be processed locally and not sent to any third-party servers.
+      <!-- <span class="font-medium">Note:</span> The Anime service is set up using a local AI, so your -->
+      <!-- image will be processed locally and not sent to any third-party servers. -->
     </p>
   </div>
 </section>
@@ -32,6 +32,7 @@
             ><input
               pInputText
               placeholder="e.g. Peter Parker"
+              [formControl]="nameControl"
               maxlength="60"
               class="w-full px-3 py-2.5 text-sm bg-muted border border-border outline-none focus:border-accent transition-colors placeholder:text-muted-foreground/50 rounded-lg"
               value=""
@@ -42,18 +43,41 @@
             ><textarea
               placeholder="Write a birthday wish..."
               maxlength="280"
+              [formControl]="messageControl"
               rows="4"
               pTextarea
               class="w-full px-3 py-2.5 text-sm bg-muted border border-border outline-none focus:border-accent transition-colors placeholder:text-muted-foreground/50 resize-none rounded-lg"
             ></textarea>
-            <p class="text-xs text-muted-foreground self-end font-mono">0/280</p>
+            <p class="text-xs text-muted-foreground justify-between flex font-mono">
+              <span> Hint: press Control+Command+Space for emojis! </span>
+            </p>
           </div>
           <div class="flex flex-col gap-1.5">
+            <label class="text-xs font-medium text-muted-foreground">Recipient</label>
+            <div class="flex">
+              <button
+                pButton
+                class="py-0.5 px-4 rounded-xl text-muted-foreground transition-colors"
+                [class]="forValue() === 'cia' ? 'bg-accent/20 text-primary' : 'hover:text-primary'"
+                (click)="forValue.set('cia')"
+              >
+                Cia
+              </button>
+              <button
+                pButton
+                class="py-0.5 px-4 rounded-xl text-muted-foreground transition-colors"
+                [class]="forValue() === 'jo' ? 'bg-accent/20 text-primary' : 'hover:text-primary'"
+                (click)="forValue.set('jo')"
+              >
+                Jo
+              </button>
+            </div>
+          </div>
+          <!-- <div class="flex flex-col gap-1.5">
             <label class="text-xs font-medium text-muted-foreground"
               >Photo <span class="normal-case font-normal">(optional)</span></label
             >
             <div class="flex flex-col items-center gap-4 p-4">
-              <!-- Controls -->
               <div class="flex gap-2">
                 @if (!isCameraOn()) {
                   <button
@@ -91,7 +115,6 @@
                 }
               </div>
 
-              <!-- Live Video Feed -->
               @if (!capturedImage()) {
                 <video
                   #video
@@ -102,10 +125,8 @@
                 ></video>
               }
 
-              <!-- Hidden Canvas for capturing the frame -->
               <canvas #canvas class="hidden"></canvas>
 
-              <!-- Captured Image Result -->
               @if (capturedImage(); as imageSrc) {
                 <div class="flex flex-col items-center gap-2">
                   <p class="text-sm font-medium text-muted-foreground">Captured snapshot:</p>
@@ -118,18 +139,20 @@
                     pButton
                     type="button"
                     class="w-full rounded-xl bg-accent text-accent-foreground py-2 mt-2 hover:bg-accent/85"
-                    (click)="caricaturizeMe()"
+                    (click)="animeizeMe()"
                   >
-                    Caricaturize me!
+                    Anime-ize me!
                   </button>
                 </div>
               }
             </div>
-          </div>
+          </div> -->
           <button
+            pButton
             type="submit"
-            disabled=""
-            class="flex items-center justify-center gap-2 py-2.5 text-sm font-medium transition-all duration-150 bg-muted text-muted-foreground cursor-not-allowed rounded-lg"
+            (click)="writeToLocalStorage()"
+            [disabled]="!nameControl.valid || !messageControl.valid"
+            class="flex items-center justify-center gap-2 py-2.5 text-sm font-medium transition-all bg-accent text-background duration-150 hover:bg-accent/75 disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed rounded-lg"
           >
             <svg data-p-icon="pen-to-square"></svg>
             Post wish
@@ -139,13 +162,37 @@
     </div>
     <div class="flex flex-col gap-3">
       <div class="lg:sticky lg:top-24">
-        <app-liquid-glass styleClass="p-4">
+        <app-liquid-glass styleClass="p-4 justify-between flex">
           <p class="text-sm font-medium tracking-widest uppercase">Wish Board</p>
+          <div class="flex">
+            <button
+              pButton
+              class="py-0.5 px-4 rounded-xl text-muted-foreground transition-colors"
+              [class]="value() === 'cia' ? 'bg-accent/20 text-primary' : 'hover:text-primary'"
+              (click)="value.set('cia')"
+            >
+              Cia
+            </button>
+            <button
+              pButton
+              class="py-0.5 px-4 rounded-xl text-muted-foreground transition-colors"
+              [class]="value() === 'jo' ? 'bg-accent/20 text-primary' : 'hover:text-primary'"
+              (click)="value.set('jo')"
+            >
+              Jo
+            </button>
+          </div>
         </app-liquid-glass>
       </div>
-      <app-post-card [post]="post" />
-      <app-post-card [post]="post" />
-      <app-post-card [post]="post" />
+      @if (value() === 'cia') {
+        @for (post of ciaPosts(); track post.name) {
+          <app-post-card [post]="post" />
+        }
+      } @else {
+        @for (post of joPosts(); track post.name) {
+          <app-post-card [post]="post" />
+        }
+      }
     </div>
   </div>
 </section>

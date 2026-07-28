@@ -3,4 +3,5 @@ export type BirthdayPost = {
   createdAt: Date;
   message: string;
   image: string;
+  for: 'cia' | 'jo';
 };

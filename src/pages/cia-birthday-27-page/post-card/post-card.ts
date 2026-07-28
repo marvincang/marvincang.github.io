@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { BirthdayPost } from '../../../types/BirthdayPost';
 
 @Component({
@@ -9,6 +9,14 @@ import { BirthdayPost } from '../../../types/BirthdayPost';
 })
 export class PostCard {
   post = input.required<BirthdayPost>();
+  initials = computed(() => {
+    return this.post()
+      .name.toUpperCase()
+      .split(' ')
+      .map((d) => d[0])
+      .join('')
+      .slice(0, 2);
+  });
 
   getHoursAgo(time: Date) {
     const timestamp = new Date(time ?? Date.now()).getTime();

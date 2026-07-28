@@ -2,11 +2,14 @@
   class="flex flex-row border border-border bg-card overflow-hidden rounded-xl"
   style="box-shadow: rgba(0, 0, 12, 0.35) 0px 1px 16px; opacity: 1; transform: none"
 >
-  <div class="w-1/2 aspect-1 bg-muted overflow-hidden">
+  <!-- <div class="w-1/2 aspect-1 bg-muted overflow-hidden">
     <img [src]="post().image" [alt]="`${post().name}'s birthday wish" class="w-full object-cover" />
-  </div>
-  <div class="flex flex-col gap-3 p-5">
+  </div> -->
+  <div class="flex flex-col gap-3 p-5 w-full">
     <div class="flex items-center gap-3">
+      <div class="rounded-full h-8 w-8 flex justify-center items-center bg-accent text-background">
+        {{ initials() }}
+      </div>
       <div class="flex-1 min-w-0">
         <p class="text-sm font-semibold truncate">{{ post().name }}</p>
         <p class="text-xs text-muted-foreground font-mono">{{ getHoursAgo(post().createdAt) }}</p>

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, signal, ViewChild } from '@angular/core';
+import { Component, computed, ElementRef, OnDestroy, signal, ViewChild } from '@angular/core';
 import { LiquidGlass } from '@components/liquid-glass/liquid-glass';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -7,6 +7,7 @@ import { PostCard } from './post-card/post-card';
 import { BirthdayPost } from '../../types/BirthdayPost';
 import { PenToSquare } from '@primeicons/angular/pen-to-square';
 import { Sparkles } from '@primeicons/angular/sparkles';
+import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cia-birthday-27-page',
@@ -18,6 +19,8 @@ import { Sparkles } from '@primeicons/angular/sparkles';
     PostCard,
     PenToSquare,
     Sparkles,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './cia-birthday-27-page.html',
   styleUrl: './cia-birthday-27-page.css',
@@ -30,13 +33,17 @@ export class CiaBirthday27Page implements OnDestroy {
   capturedImage = signal<string | null>(null);
   isCameraOn = signal<boolean>(false);
 
-  post: BirthdayPost = {
-    name: 'Peter Parker',
-    createdAt: new Date('Mon, 27 Jul 2026 19:58:03 GMT'),
-    message:
-      "Happy birthday Marvin! Wishing you all the best in your PhD journey at GSU. You've always been an inspiration to everyone around you. 🎉",
-    image: '/me-anime.png',
-  };
+  posts = signal<BirthdayPost[]>(JSON.parse(localStorage.getItem('birthday-posts') || '[]'));
+
+  ciaPosts = computed(() => this.posts().filter((d) => d.for === 'cia'));
+  joPosts = computed(() => this.posts().filter((d) => d.for === 'jo'));
+
+  value = signal<'cia' | 'jo'>('cia');
+
+  forValue = signal<'cia' | 'jo'>('cia');
+
+  nameControl = new FormControl('', Validators.required);
+  messageControl = new FormControl('', Validators.required);
 
   async startCamera() {
     try {
@@ -88,5 +95,47 @@ export class CiaBirthday27Page implements OnDestroy {
     this.stopCamera();
   }
 
-  caricaturizeMe() {}
+  animeizeMe() {}
+
+  downloadImage(imageString: string, fileName: string = 'download.png') {
+    const anchor = document.createElement('a');
+    anchor.href = imageString;
+    anchor.download = '~/Dev/marvincang.github.io/public/' + fileName;
+
+    // Trigger download programmatically
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+  }
+
+  writeToLocalStorage() {
+    const results: BirthdayPost[] = JSON.parse(localStorage.getItem('birthday-posts') || '[]');
+    const date = new Date();
+    let filename = '';
+    if (this.capturedImage()) {
+      filename = this.nameControl.value + '-' + date.toISOString() + '.png';
+      this.downloadImage(this.capturedImage()!, filename);
+    }
+
+    results.push({
+      name: this.nameControl.value,
+      message: this.messageControl.value,
+      image: filename,
+      for: this.forValue(),
+      createdAt: date,
+    } as BirthdayPost);
+
+    results.sort((a, b) =>
+      new Date(a.createdAt).toISOString > new Date(b.createdAt).toISOString ? 1 : -1,
+    );
+
+    this.value.set(this.forValue());
+
+    localStorage.setItem('birthday-posts', JSON.stringify(results));
+    this.posts.set(results);
+
+    this.nameControl.reset();
+    this.messageControl.reset();
+    this.stopCamera();
+  }
 }
