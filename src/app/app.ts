@@ -60,7 +60,6 @@ export class AppComponent {
   getCurrentPage() {
     const curPage = this.PAGES.find((d) => d.href === location.pathname);
     if (curPage) {
-      console.log(curPage);
       this.currentPage.set(curPage);
     }
   }
