@@ -9,18 +9,24 @@ export const PAGES: PageNav[] = [
   {
     label: 'Home',
     href: '/',
-    // background: {
-    //   light: '/main-bg-light.svg',
-    //   dark: '/main-bg-dark.svg',
-    // },
+    background: {
+      light: '/main-bg-light.svg',
+      dark: '/main-bg-dark.svg',
+    },
   },
-  // {
-  //   label: 'Projects',
-  //   href: '/projects',
-  // },
+  {
+    label: 'Projects',
+    href: '/projects',
+  },
+  {
+    label: 'Posts',
+    href: '/ciabday-27/posts',
+    disabled: true,
+  },
   {
     label: 'Game',
     href: '/ciabday-27/game',
+    disabled: true,
   },
 ];
 
@@ -32,7 +38,7 @@ export const PAGES: PageNav[] = [
   styleUrl: './header.css',
 })
 export class Header {
-  PAGES = PAGES;
+  PAGES = PAGES.filter((d) => !d.disabled);
   themeService = inject(ThemeService);
 
   toggleDarkMode() {

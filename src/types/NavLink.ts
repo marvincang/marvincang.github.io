@@ -12,4 +12,5 @@ export type PageNav = {
   href: string;
   icon?: string;
   background?: { [key in AppTheme]: string };
+  disabled?: boolean;
 };
