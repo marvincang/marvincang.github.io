@@ -4,7 +4,7 @@
       <a pButton class="font-serif" link href="/">MC</a>
     </div>
     <nav class="flex items-center gap-1">
-      @for (nav of PAGES; track nav.href) {
+      @for (nav of PAGES(); track nav.href) {
         <a
           class="px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground"
           [class]="isActive(nav) ? 'font-medium! text-foreground!' : ''"

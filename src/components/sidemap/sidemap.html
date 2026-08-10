@@ -5,11 +5,12 @@
 
       <nav class="flex flex-col gap-2">
         @for (link of sections(); track link.href) {
-          <button
+          <a
             key="{link.href}"
+            [href]="link.href"
             pButton
             variant="text"
-            (click)="scrollTo(link)"
+            (click)="$event.preventDefault(); scrollTo(link)"
             class="flex justify-start text-muted-foreground px-2 py-1 rounded-xl w-full text-sm hover:bg-accent/10 transition-colors duration-200"
             [class]="isActive(link) ? 'text-accent! font-semibold bg-accent/10' : ''"
           >
@@ -20,7 +21,7 @@
               ></svg>
             }
             {{ link.label }}
-          </button>
+          </a>
         }
       </nav>
     </app-liquid-glass>

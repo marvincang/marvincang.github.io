@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, computed } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { ThemeService } from '../../services/theme-service';
 import { PageNav } from '../../types/NavLink';
 import { RouterLink } from '@angular/router';
+import { ConfigService } from '../../services/config-service';
 
 export const PAGES: PageNav[] = [
   {
@@ -38,8 +39,9 @@ export const PAGES: PageNav[] = [
   styleUrl: './header.css',
 })
 export class Header {
-  PAGES = PAGES.filter((d) => !d.disabled);
   themeService = inject(ThemeService);
+  configService = inject(ConfigService);
+  PAGES = computed(() => this.configService.getEnabledHeaders());
 
   toggleDarkMode() {
     this.themeService.toggleDarkMode();
