@@ -1,9 +1,9 @@
-<header class="fixed top-0 inset-x-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">
-  <div class="px-14 h-14 flex items-center justify-between">
+<header class="fixed top-0 inset-x-0 z-15 bg-background/90 backdrop-blur-sm border-b border-border">
+  <div class="px-4 md:px-14 h-14 flex items-center justify-between">
     <div class="left">
       <a pButton class="font-serif" link href="/">MC</a>
     </div>
-    <nav class="flex items-center gap-1">
+    <nav class="hidden md:flex items-center gap-1">
       @for (nav of PAGES(); track nav.href) {
         <a
           class="px-3 py-1.5 text-sm rounded-md transition-colors text-muted-foreground hover:text-foreground"
@@ -43,23 +43,13 @@
             <path d="M20 12h2"></path>
             <path d="m6.34 17.66-1.41 1.41"></path>
             <path d="m19.07 4.93-1.41 1.41"></path>
-          </svg></button
-        ><button class="md:hidden hover:text-accent transition-colors">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-chevron-down transition-transform"
-          >
-            <path d="m6 9 6 6 6-6"></path>
           </svg>
         </button>
+        <!-- <div class="block md:hidden"> -->
+        <button pButton (click)="mobileNavVisible.update((v) => !v)">
+          <svg data-p-icon="bars"></svg>
+        </button>
+        <!-- </div> -->
       </div>
     </div>
   </div>

@@ -1,0 +1,21 @@
+<aside class="flex flex-col gap-3 w-[calc(100vw-2rem)] shrink-0 self-start">
+  <app-liquid-glass styleClass="py-8 px-4 h-[calc(100dvh-70px)] flex flex-col gap-2">
+    <p class="text-xs uppercase tracking-widest">Navigation Menu</p>
+
+    <nav class="flex flex-col gap-2">
+      @for (nav of PAGES(); track nav.href) {
+        <a
+          key="{nav.href}"
+          class="flex justify-start text-muted-foreground px-2 py-1 rounded-xl w-full text-sm hover:bg-accent/10 transition-colors duration-200"
+          pButton
+          variant="text"
+          [class]="isActive(nav) ? 'text-accent! font-semibold bg-accent/10' : ''"
+          (click)="open.set(false)"
+          [routerLink]="nav.href"
+        >
+          {{ nav.label }}
+        </a>
+      }
+    </nav>
+  </app-liquid-glass>
+</aside>

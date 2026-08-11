@@ -8,15 +8,17 @@ import {
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Footer } from '@components/footer/footer';
-import { Header, PAGES } from '@components/header/header';
+import { Header } from '@components/header/header';
 import { Sidemap } from '@components/sidemap/sidemap';
 import { ThemeService } from '../services/theme-service';
 import { NavLink, PageNav } from '../types/NavLink';
+import { ConfigService } from '../services/config-service';
+import { MobileNavSidebar } from '@components/mobile-nav-sidebar/mobile-nav-sidebar';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Header, Sidemap, Footer],
+  imports: [RouterOutlet, Header, Sidemap, Footer, MobileNavSidebar],
   templateUrl: './app.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.css',
@@ -26,8 +28,11 @@ export class AppComponent {
   elementRef = inject(ElementRef);
   themeService = inject(ThemeService);
   theme = computed(() => this.themeService.theme());
-  PAGES = PAGES;
-  currentPage = signal<PageNav>(this.PAGES[0]);
+  configService = inject(ConfigService);
+  PAGES = computed(() => this.configService.getEnabledHeaders());
+  currentPage = signal<PageNav>(this.PAGES()[0]);
+
+  mobileNavVisible = signal(false);
 
   onRouteActivated() {
     setTimeout(() => {
@@ -58,7 +63,7 @@ export class AppComponent {
   }
 
   getCurrentPage() {
-    const curPage = this.PAGES.find((d) => d.href === location.pathname);
+    const curPage = this.PAGES().find((d) => d.href === location.pathname);
     if (curPage) {
       this.currentPage.set(curPage);
     }

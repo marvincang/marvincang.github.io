@@ -1,18 +1,31 @@
-<app-header />
+<app-header [(mobileNavVisible)]="mobileNavVisible" />
 
 @if (this.currentPage().background) {
   <div class="absolute inset-0 z-0 opacity-10 justify-end hidden lg:flex" aria-hidden="true">
     <img width="950px" [src]="this.currentPage().background![theme()]" />
   </div>
 }
-<div class="relative px-8 xl:px-8 z-10">
+<div class="relative md:px-8 xl:px-8 z-10 overflow-x-clip">
   <div class="flex">
     <main class="flex-1 min-w-0">
       <router-outlet (activate)="onRouteActivated()" />
     </main>
-    <div class="hidden lg:block">
+    <div
+      class="hidden lg:block transition-[margin-right] duration-150 ease-in-out"
+      [class.-mr-60]="mobileNavVisible()"
+    >
       <app-sidemap [sections]="sections()" />
     </div>
+  </div>
+  <div
+    class="absolute inset-0 top-14 z-9 transition-opacity duration-150 ease-in-out pointer-events-none h-[calc(100dvh-56px)] w-screen bg-background opacity-0"
+    [class.opacity-75]="mobileNavVisible()"
+  ></div>
+  <div
+    class="absolute right-0 inset-y-16 z-10 block lg:hidden transition-all duration-150 ease-in-out w-0"
+    [class]="mobileNavVisible() ? 'w-[calc(100vw-2rem)] right-4' : ''"
+  >
+    <app-mobile-nav-sidebar [(open)]="mobileNavVisible" />
   </div>
 </div>
 <app-footer />
